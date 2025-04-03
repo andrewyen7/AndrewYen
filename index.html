@@ -36,12 +36,14 @@
     <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Andrew Yen
+          <!-- 放大圖片 -->
+          <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="images/AndrewYen.jpg" alt="Andrew Yen" width="120" height="120" class="me-2 rounded-circle">
+            Andrew Yen
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" 
                   aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon">
-            </span>
+            <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
@@ -60,8 +62,7 @@
                 </ul>
                 <form class="d-flex" action="https://www.google.com/search" method="GET">
                   <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Search
-                  </button>
+                  <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
           </div>
         </div>
@@ -152,15 +153,24 @@
           <button type="submit">Donate</button>
         </form>
       </div>
-      <div class="col-lg-4" id="contactMe-container" border-top: 5000px;>
-        <h2>Contact Me</h2>
+      <div class="col-lg-4" id="contactMe-container">
+        <h2 id="contactMeHeader" style="cursor: pointer;">Contact Me</h2>
         <form>
           <input type="text" placeholder="Your Name" name="name" required>
           <input type="email" placeholder="Your Email" name="email" required>
           <textarea placeholder="Your Message" name="message" rows="5" required></textarea>
           <button type="submit" class="btn-primary">Send Message</button>
-      </form>
-    </div>  
+        </form>
+      </div>
+
+      <!-- 在頁面底部添加聯繫資訊 -->
+      <div id="contactLinks" style="display: none; margin-top: 20px;">
+        <p><a href="https://www.facebook.com/yen.yihua/" target="_blank">Facebook</a></p>
+        <p><a href="https://www.instagram.com/andrew.yen.tptw/" target="_blank">Instagram</a></p>
+        <p>Email: <a href="mailto:andrewyen8@gmail.com">andrewyen8@gmail.com</a></p>
+        <p><a href="https://www.linkedin.com/in/yihua-yen/" target="_blank">LinkedIn</a></p>
+      </div>
+    </div>
   </div>
   <!-- FOOTER -->
   <footer class="container">
@@ -174,5 +184,15 @@
     <script>document.addEventListener('DOMContentLoaded', loadDefaultWeather);</script>
     <script src="email.js"></script>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>      
+    <script>
+      // JavaScript 用於處理點擊事件
+      document.getElementById('contactMeHeader').addEventListener('click', function () {
+        const contactLinks = document.getElementById('contactLinks');
+        // 顯示聯繫資訊
+        contactLinks.style.display = 'block';
+        // 滾動到聯繫資訊
+        contactLinks.scrollIntoView({ behavior: 'smooth' });
+      });
+    </script>
   </body>
 </html>
